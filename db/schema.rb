@@ -30,8 +30,8 @@ ActiveRecord::Schema.define(version: 2019_07_15_155721) do
   create_table "warehouses_products", force: :cascade do |t|
     t.integer "product_id"
     t.integer "warehouse_id"
-    t.decimal "item_count"
-    t.decimal "low_item_threshold"
+    t.integer "item_count"
+    t.integer "low_item_threshold"
     t.index ["product_id"], name: "index_warehouses_products_on_product_id"
     t.index ["warehouse_id"], name: "index_warehouses_products_on_warehouse_id"
   end
