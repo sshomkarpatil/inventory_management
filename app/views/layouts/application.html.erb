@@ -10,6 +10,10 @@
   </head>
 
   <body>
+    <ul id='nav'>
+      <li><%= link_to 'Home', root_path %></li>
+      <li><%= link_to 'New Warehouse', new_warehouse_path %></li>
+    </ul>
     <%= yield %>
   </body>
 </html>

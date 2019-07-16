@@ -13,3 +13,27 @@
  *= require_tree .
  *= require_self
  */
+
+.danger {
+color: red;
+}
+
+table td, table th {
+  padding: 5px 10px;
+  text-align: left;
+}
+
+ul#nav {
+  padding: 10px 10px;
+  border-bottom: 1px solid rgba(0,0,0,0.4);
+}
+
+ul#nav li {
+  display: inline-block;
+  padding: 5px 8px;
+}
+
+h2 {
+  padding: 0px 10px;
+  margin-bottom: 40px;
+}
