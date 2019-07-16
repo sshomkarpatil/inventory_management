@@ -1,5 +1,5 @@
 <tr>
-  <td><%= product.sku %></td>
+  <td><%= link_to product.sku, edit_product_path(product) %></td>
   <td><%= product.name %></td>
   <% product.warehouses_products.each do |warehouses_product| %>
     <% dwp = warehouses_product.decorated_view_object %>

@@ -1,8 +1,8 @@
 class Warehouse < ApplicationRecord
   DEFAULT_LOW_ITEM_THRESHOLD = 10
 
-  has_many :warehouses_products, dependent: :destroy
-  has_many :products, through: :warehouses_products
+  has_many :warehouses_products, dependent: :destroy, inverse_of: :warehouse
+  has_many :products, through: :warehouses_products, inverse_of: :warehouses
 
   validates :wh_code, :name, :pincode, :max_capacity, presence: true
   validates :max_capacity, numericality: { only_integer: true }

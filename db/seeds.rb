@@ -24,7 +24,8 @@ end
 mumbai_warehouse = Warehouse.find_by(wh_code: 'Mum400037')
 Product.all.each do |product|
   item_count = rand(11..50)
-  mumbai_warehouse.warehouses_products.create!(product: product, item_count: item_count)
+  mumbai_warehouse.warehouses_products.create!(product: product, item_count: item_count,
+    low_item_threshold: WarehousesProduct::DEFAULT_LOW_ITEM_THRESHOLD)
 end
 
 # Banglore Warehouse Products
@@ -32,13 +33,15 @@ bangalore_warehouse = Warehouse.find_by(wh_code: 'Ban200045')
 low_threashold_product = Product.count / 3
 Product.all.limit(low_threashold_product).each do |product|
   item_count = rand(1..9)
-  bangalore_warehouse.warehouses_products.create!(product: product, item_count: item_count)
+  bangalore_warehouse.warehouses_products.create!(product: product, item_count: item_count,
+    low_item_threshold: WarehousesProduct::DEFAULT_LOW_ITEM_THRESHOLD)
 end
 p_ids = bangalore_warehouse.products.pluck(:id)
 rest_products = Product.where.not(id: p_ids)
 rest_products.each do |product|
   item_count = rand(11..50)
-  bangalore_warehouse.warehouses_products.create!(product: product, item_count: item_count)
+  bangalore_warehouse.warehouses_products.create!(product: product, item_count: item_count,
+    low_item_threshold: WarehousesProduct::DEFAULT_LOW_ITEM_THRESHOLD)
 end
 
 # New Delhi Warehouse Products
@@ -46,9 +49,11 @@ new_delhi_warehouse = Warehouse.find_by(wh_code: 'ND100036')
 groups = Product.all.in_groups(2)
 groups[0].each do |product|
   item_count = rand(1..9)
-  new_delhi_warehouse.warehouses_products.create!(product: product, item_count: item_count)
+  new_delhi_warehouse.warehouses_products.create!(product: product, item_count: item_count,
+    low_item_threshold: WarehousesProduct::DEFAULT_LOW_ITEM_THRESHOLD)
 end
 groups[1].each do |product|
   item_count= rand(11..50)
-  new_delhi_warehouse.warehouses_products.create!(product: product, item_count: item_count)
+  new_delhi_warehouse.warehouses_products.create!(product: product, item_count: item_count,
+    low_item_threshold: WarehousesProduct::DEFAULT_LOW_ITEM_THRESHOLD)
 end

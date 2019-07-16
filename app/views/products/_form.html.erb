@@ -1,0 +1,22 @@
+<%= form_with(model: product, local: true) do |f| %>
+  <table>
+    <%= f.fields_for :warehouses_products do |ff| %>
+      <tr>
+        <th><%= ff.object.warehouse.name %></th>
+        <td><%= ff.label :item_count %></td>
+        <td><%= ff.text_field :item_count, placeholder: 'Item Count' %></td>
+        <td><%= ff.label :low_item_threshold %></td>
+        <td><%= ff.text_field :low_item_threshold, placeholder: 'Low Item Threshold' %></td>
+      </tr>
+      <% if ff.object.errors.any? %>
+        <tr>
+          <td></td>
+          <td colspan="4"><%= ff.object.errors.full_messages.join(', ') %></td></tr>
+      <% end %>
+    <% end %>
+    <tr>
+      <td colspan="5"><%= f.submit %></td>
+    </tr>
+  </table>
+
+<% end %>

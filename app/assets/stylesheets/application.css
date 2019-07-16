@@ -14,6 +14,10 @@
  *= require_self
  */
 
- .danger {
-  color: red;
- }
+.danger {
+color: red;
+}
+
+table td, table th {
+  padding: 5px 10px;
+}
