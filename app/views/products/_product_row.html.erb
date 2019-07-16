@@ -1,0 +1,8 @@
+<tr>
+  <td><%= product.sku %></td>
+  <td><%= product.name %></td>
+  <% product.warehouses_products.each do |warehouses_product| %>
+    <% dwp = warehouses_product.decorated_view_object %>
+    <td class="<%= dwp.item_count_css_class %>"><%= warehouses_product.item_count %></td>
+  <% end %>
+</tr>

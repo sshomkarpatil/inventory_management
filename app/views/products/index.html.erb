@@ -1,0 +1,17 @@
+<table>
+  <thead>
+    <tr>
+      <th>SKU</th>
+      <th>Product Name</th>
+      <% @products.to_a.first.warehouses.each do |warehouse| %>
+        <th><%= warehouse.name %></th>
+      <% end %>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @products.each do |product| %>
+      <%= render 'product_row', product: product %>
+    <% end %>
+  </tbody>
+</table>

@@ -1,6 +1,6 @@
 class Product < ApplicationRecord
-  has_many :warehouses_products, dependent: :destroy
-  has_many :warehouses, through: :warehouses_products
+  has_many :warehouses_products, -> { order(warehouse_id: :asc) }, dependent: :destroy
+  has_many :warehouses, -> { order(id: :asc) }, through: :warehouses_products
 
   validates :sku, :name, :price, presence: true
   validates :sku, length: { is: 8 }

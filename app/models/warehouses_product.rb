@@ -1,4 +1,5 @@
 class WarehousesProduct < ApplicationRecord
+  include ViewsDecoratable
 
   DEFAULT_ITEM_COUNT = 0
   DEFAULT_LOW_ITEM_THRESHOLD = 10
