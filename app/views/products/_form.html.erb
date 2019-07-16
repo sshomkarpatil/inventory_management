@@ -10,9 +10,13 @@
       </tr>
       <% if ff.object.errors.any? %>
         <tr>
-          <td></td>
-          <td colspan="4"><%= ff.object.errors.full_messages.join(', ') %></td></tr>
+          <td colspan="5"><%= ff.object.errors.full_messages.join(', ') %>
+          </td>
+        </tr>
       <% end %>
+      <tr>
+        <td colspan="5"><hr/></td>
+      </tr>
     <% end %>
     <tr>
       <td colspan="5"><%= f.submit %></td>

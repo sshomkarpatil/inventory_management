@@ -1,0 +1,31 @@
+<% if warehouse.errors.any? %>
+  <ul>
+    <% warehouse.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
+<%= form_with(model: warehouse, local: true) do |f| %>
+  <table>
+    <tr>
+      <th><%= f.label :name %></th>
+      <td><%= f.text_field :name, placeholder: 'Name' %></td>
+    </tr>
+    <tr>
+      <th><%= f.label :wh_code %></th>
+      <td><%= f.text_field :wh_code, placeholder: 'Wh code' %></td>
+    </tr>
+    <tr>
+      <th><%= f.label :pincode %></th>
+      <td><%= f.text_field :pincode, placeholder: 'Pincode' %></td>
+    </tr>
+    <tr>
+      <th><%= f.label :max_capacity %></th>
+      <td><%= f.text_field :max_capacity, placeholder: 'Max Capacity' %></td>
+    </tr>
+    <tr>
+      <td colspan="2"><%= f.submit %></td>
+    </tr>
+
+  </table>
+<% end %>
