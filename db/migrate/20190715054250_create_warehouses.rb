@@ -5,6 +5,8 @@ class CreateWarehouses < ActiveRecord::Migration[5.2]
       t.string :name
       t.string :pincode
       t.integer :max_capacity
+
+      t.timestamps null: false
     end
   end
 end

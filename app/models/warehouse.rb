@@ -5,6 +5,8 @@ class Warehouse < ApplicationRecord
   has_many :products, through: :warehouses_products, inverse_of: :warehouses
 
   validates :wh_code, :name, :pincode, :max_capacity, presence: true
+  validates :wh_code, uniqueness: true
+
   validates :max_capacity, numericality: { only_integer: true }
   validates :wh_code, length: { in: 4..16 }
   validates :pincode, length: { is: 6 }

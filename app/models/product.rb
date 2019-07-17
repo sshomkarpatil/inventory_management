@@ -6,6 +6,8 @@ class Product < ApplicationRecord
   validates :sku, length: { is: 8 }
   validates :sku, uniqueness: true
 
+  validates :price, numericality: true
+
   after_create :create_warehouses_products
 
   accepts_nested_attributes_for :warehouses_products
