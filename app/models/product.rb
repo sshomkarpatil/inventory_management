@@ -5,6 +5,7 @@ class Product < ApplicationRecord
   validates :sku, :name, :price, presence: true
   validates :sku, length: { is: 8 }
   validates :sku, uniqueness: true
+  validates :price, numericality: true
 
   after_create :create_warehouses_products
 

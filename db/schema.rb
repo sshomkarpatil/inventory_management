@@ -16,6 +16,8 @@ ActiveRecord::Schema.define(version: 2019_07_15_155721) do
     t.string "sku", limit: 8, null: false
     t.decimal "price", precision: 8, scale: 2
     t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["sku"], name: "index_products_on_sku"
   end
 
@@ -24,6 +26,8 @@ ActiveRecord::Schema.define(version: 2019_07_15_155721) do
     t.string "name"
     t.string "pincode"
     t.integer "max_capacity"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["wh_code"], name: "index_warehouses_on_wh_code"
   end
 
@@ -32,6 +36,8 @@ ActiveRecord::Schema.define(version: 2019_07_15_155721) do
     t.integer "warehouse_id"
     t.integer "item_count"
     t.integer "low_item_threshold"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["product_id"], name: "index_warehouses_products_on_product_id"
     t.index ["warehouse_id"], name: "index_warehouses_products_on_warehouse_id"
   end
